@@ -7,7 +7,12 @@ function love.load()
         agents[i] = {
             x = math.random(0, 800),
             y = math.random(0, 600),
-            speed = 100
+            speed = 100,
+            color = {
+                r = math.random(),
+                g = math.random(),
+                b = math.random()
+            }
         }
     end
 end
@@ -26,6 +31,7 @@ end
 
 function love.draw()
     for _, agent in ipairs(agents) do
+        love.graphics.setColor(agent.color.r, agent.color.g, agent.color.b)
         love.graphics.circle("fill", agent.x, agent.y, 5)
     end
 end
